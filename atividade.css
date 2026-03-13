@@ -1,0 +1,88 @@
+
+body{
+    margin: 0;
+    padding: 0;
+    background-image: url(/images/fundo.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    cursor: url(/images/katana.png), auto;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.caixa{
+    display: flex;
+    justify-content: center;
+    margin: 10px auto;
+}
+.conteudo:hover{
+    box-shadow: 
+    0 0 10px rgb(2, 76, 136),
+    0 0 20px rgb(0, 153, 255),
+    0 0 40px rgb(0, 217, 255);
+}
+.caixa .conteudo{
+    background: rgba(20, 40, 60, 0.6);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(0,255,255,0.4);
+    border-radius: 12px;
+    padding: 15px;
+    margin: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.imagem:hover{
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+}
+
+.imagem img{
+    width: 300px;
+    border-radius: 10px;
+
+    animation: flutuar 3s infinite ease-in-out;
+}
+
+@keyframes flutuar{
+    0%{transform: translateY(0);}
+    50%{transform: translateY(-5px);}
+    100%{transform: translateY(0);}
+}
+
+nav h1{ 
+    text-align: center;
+    width: 52%;
+    margin: 10px auto;
+    padding: 10px;
+
+    background: linear-gradient(90deg,#00ffff,#00aaff,#ffffff,#00ffff);
+    background-size: 300%;
+    color: transparent;
+    -webkit-background-clip: text;
+
+    animation: brilho 4s linear infinite;
+}
+
+@keyframes brilho{
+    0%{background-position:0%}
+    100%{background-position:300%}
+}
+
+
+@keyframes flutuar{
+    0%{transform: translateY(0);}
+    50%{transform: translateY(-5px);}
+    100%{transform: translateY(0);}
+}
+    
+
+h2{
+    text-align: center;
+}
+#particles-js{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
