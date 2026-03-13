@@ -1,0 +1,78 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+
+    /* fundo degradê estilo valorant */
+    background: linear-gradient(135deg,#ff4655,#f05454,#ff6b6b);
+
+    gap:70px;
+}
+
+/* imagem */
+.imagem img{
+    width:55vh;
+    border-radius:12px;
+    box-shadow:0 20px 40px rgba(0,0,0,0.4);
+}
+
+/* texto */
+.texto{
+    max-width:420px;
+}
+
+/* logo */
+.icone img{
+    width:110px;
+    background:#0f1923;
+    padding:25px;
+    border-radius:10px;
+    margin-bottom:20px;
+}
+
+/* titulo */
+.titulo h1{
+    font-size:40px;
+    letter-spacing:3px;
+    margin-bottom:20px;
+}
+
+/* descrição */
+.desc{
+    line-height:28px;
+    margin-bottom:20px;
+}
+
+/* tags */
+.tags{
+    color:#ff1a1a;
+    font-weight:bold;
+    margin-bottom:30px;
+}
+
+/* botão */
+.botao{
+    padding:15px 40px;
+    border:none;
+    background:#0f1923;
+    color:white;
+    font-size:16px;
+    font-weight:bold;
+    border-radius:6px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+/* animação */
+.botao:hover{
+    background:#ff4655;
+    transform:scale(1.05);
+}
