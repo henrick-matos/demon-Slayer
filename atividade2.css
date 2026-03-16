@@ -11,68 +11,261 @@ body{
     align-items:center;
     height:100vh;
 
-    /* fundo degradê estilo valorant */
-    background: linear-gradient(135deg,#ff4655,#f05454,#ff6b6b);
+    background:linear-gradient(
+        135deg,
+        #0f1720,
+        #1b2a33,
+        #2d3f45
+    );
+}
 
-    gap:70px;
+/* container geral */
+.container{
+    display:flex;
+    align-items:center;
+    gap:90px;
+    padding:40px;
+    border-radius:20px;
+
+    backdrop-filter:blur(10px);
+    background:rgba(255,255,255,0.03);
+
+    box-shadow:
+    0 20px 50px rgba(0,0,0,0.6),
+    0 0 40px rgba(126,252,138,0.1);
+}
+
+/* imagem */
+.imagem{
+    position:relative;
+    display:inline-block;
+    perspective:1000px;
+}
+
+/* borda animada */
+.imagem::before{
+    content:"";
+    position:absolute;
+    inset:-3px;
+    border-radius:16px;
+
+    background:linear-gradient(
+        90deg,
+        transparent,
+        #7efc8a,
+        #3cb6ff,
+        #7efc8a,
+        transparent
+    );
+
+    background-size:300%;
+    opacity:0;
+    transition:0.3s;
 }
 
 /* imagem */
 .imagem img{
     width:55vh;
-    border-radius:12px;
-    box-shadow:0 20px 40px rgba(0,0,0,0.4);
+    border-radius:14px;
+    display:block;
+    position:relative;
+    z-index:1;
+
+    box-shadow:
+    0 20px 50px rgba(0,0,0,0.7),
+    0 0 40px rgba(126,252,138,0.25);
+
+    transform-style:preserve-3d;
+    transition:0.4s;
+}
+
+/* hover imagem */
+.imagem:hover::before{
+    opacity:1;
+    animation:bordaAnimada 3s linear infinite;
+}
+
+.imagem:hover img{
+    transform:scale(1.05) rotateY(8deg) rotateX(4deg);
 }
 
 /* texto */
 .texto{
     max-width:420px;
+    color:#f1f1f1;
+    display:flex;
+    flex-direction:column;
+    gap:20px;
 }
 
-/* logo */
+/* cabeçalho */
+.cabecalho{
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+    width:100%;
+}
+
+/* faixa cinematográfica */
+.icone{
+    width:100%;
+    height:70px;
+    border-radius:12px;
+    overflow:hidden;
+    position:relative;
+
+    box-shadow:
+    0 0 15px rgba(126,252,138,0.25),
+    inset 0 0 20px rgba(0,0,0,0.6);
+}
+
+/* imagem dentro da faixa */
 .icone img{
-    width:110px;
-    background:#0f1923;
-    padding:25px;
-    border-radius:10px;
-    margin-bottom:20px;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+    filter:brightness(0.7) contrast(1.1);
+}
+
+/* luz passando */
+.icone::after{
+    content:"";
+    position:absolute;
+    top:0;
+    left:-150%;
+    width:120%;
+    height:100%;
+
+    background:linear-gradient(
+        120deg,
+        transparent,
+        rgba(126,252,138,0.35),
+        transparent
+    );
+
+    animation:luzPassando 4s infinite;
+}
+
+/* animação da luz */
+@keyframes luzPassando{
+    0%{
+        left:-150%;
+    }
+    100%{
+        left:150%;
+    }
 }
 
 /* titulo */
-.titulo h1{
-    font-size:40px;
-    letter-spacing:3px;
-    margin-bottom:20px;
+.cabecalho h1{
+    font-size:42px;
+    letter-spacing:4px;
+    color:#7efc8a;
+
+    text-shadow:
+    0 0 10px #7efc8a,
+    0 0 30px rgba(126,252,138,0.6);
+
+    text-align:left;
+}
+
+/* energia passando no titulo */
+.cabecalho h1::after{
+    content:"";
+    position:absolute;
+    top:0;
+    left:-100%;
+    width:100%;
+    height:100%;
 }
 
 /* descrição */
 .desc{
     line-height:28px;
-    margin-bottom:20px;
+    color:#d6d6d6;
 }
 
 /* tags */
 .tags{
-    color:#ff1a1a;
+    color:#ff4d4d;
     font-weight:bold;
-    margin-bottom:30px;
 }
 
 /* botão */
 .botao{
-    padding:15px 40px;
+    padding:16px 45px;
     border:none;
-    background:#0f1923;
+
+    background:linear-gradient(135deg,#2f6f4f,#3fa86c);
+
     color:white;
     font-size:16px;
     font-weight:bold;
-    border-radius:6px;
+
+    border-radius:8px;
     cursor:pointer;
+
+    letter-spacing:1px;
+    position:relative;
+    overflow:hidden;
+
     transition:0.3s;
 }
 
-/* animação */
+/* energia botão */
+.botao::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:-100%;
+    width:100%;
+    height:100%;
+
+    background:linear-gradient(
+        120deg,
+        transparent,
+        rgba(126,252,138,0.6),
+        transparent
+    );
+
+    transition:0.5s;
+}
+
+/* hover botão */
+.botao:hover::before{
+    left:100%;
+}
+
 .botao:hover{
-    background:#ff4655;
-    transform:scale(1.05);
+    transform:translateY(-3px) scale(1.05);
+
+    box-shadow:
+    0 0 20px #7efc8a,
+    0 0 40px rgba(126,252,138,0.5);
+}
+
+/* clique */
+.botao:active{
+    transform:scale(0.95);
+}
+
+/* animações */
+
+@keyframes bordaAnimada{
+    0%{
+        background-position:0%;
+    }
+    100%{
+        background-position:300%;
+    }
+}
+
+@keyframes energiaTitulo{
+    0%{
+        left:-100%;
+    }
+    100%{
+        left:100%;
+    }
 }
